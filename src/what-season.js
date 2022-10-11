@@ -15,7 +15,6 @@ const { NotImplementedError } = require('../extensions/index.js');
   if (date === undefined) {
     return 'Unable to determine the time of year!'
   }
-  // || Object.getOwnPropertyNames(date).length > 0) && arguments.length > 0
   if (date instanceof Date === false ) {
     throw new Error('Invalid date!');
 }
