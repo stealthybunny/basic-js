@@ -11,14 +11,18 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For n = 152, the output should be 52
  *
  */
-function deleteDigit(n) {
-  let arr = [];
+ function deleteDigit(n) {
+  let outArr = [];
   let str = n.toString();
-  for (let i = 1; i <= str.length; i++) {
-    arr.push(parceInt(str.slice(1,i)));
+  let arr = str.split('');
+  let tempString = '';
+  for (let i = 0; i < arr.length; i++) {
+    let re = new RegExp(`${arr[i]}`);
+    tempString = str.replace(re,'');
+    outArr.push(tempString);
+    tempString = '';
   }
-  console.log(arr)
-  return Math.max.apply(0, arr);
+  return Math.max.apply(0, outArr);
 }
 
 module.exports = {
