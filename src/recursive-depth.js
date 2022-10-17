@@ -16,8 +16,8 @@ const { NotImplementedError } = require('../extensions/index.js');
   calculateDepth(arr) {
     let count = 0;
     if (Array.isArray(arr)) {
-      let subArrays = arr.map(subArr => calculateDepth(subArr));
-      count = count + 1 + Math.max(null, ...subArrays)
+      arr = arr.map(subArr => this.calculateDepth(subArr));
+      count =  count + 1  + Math.max(0, ...arr);
     }
     return count;
 }
